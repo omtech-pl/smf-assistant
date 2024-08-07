@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import 'tailwindcss/tailwind.css';
-import { localization } from './localization';
+import { localization } from './localization'; // Adjust the path as necessary
 
 const App = () => {
   const [inputValue, setInputValue] = useState('');
   const [outputValue, setOutputValue] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState('CS');
+  const [selectedLanguage, setSelectedLanguage] = useState('CS'); // Default language is CS (Czech)
 
   document.body.classList.add('dark:bg-gray-800', 'dark:border-gray-600', 'dark:text-white');
 
@@ -43,8 +43,41 @@ const App = () => {
       });
   };
 
+  const handleSampleJson = () => {
+    const sampleJson = `{
+      "steps": [
+          {
+              "element": "#form-dataAccountEdit",
+              "intro": "W zakładce mamy możlwiość edycji naszych danych osobowych.",
+              "position": "bottom"
+          },
+          {
+              "element": "#form-companyAccountEdit",
+              "intro": "W zakładce mamy możliwość podglądu informacji o naszym profilu.",
+              "position": "bottom"
+          },
+          {
+              "element": "a[data-target=\\"#form-atlasEdit\\"]",
+              "intro": "Formularz umożliwiający ustalenie hasła na potrzeby integracji aplikacji z systemami zewnętrznymi opartymi o protokół Atlas (głównie giełdami transportowymi).",
+              "position": "bottom"
+          }
+      ]
+    }`;
+    setInputValue(sampleJson);
+  };
+
   return (
     <main className="max-w-4xl mx-auto p-4">
+      <button
+        onClick={handleSampleJson}
+        className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-green-700 rounded-lg focus:ring-4 focus:ring-green-200 dark:focus:ring-green-900 hover:bg-green-800"
+      >
+        Add Sample JSON
+      </button>
+
+      <br />
+      <br />
+      
       <label htmlFor="input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your JSON</label>
       <textarea
         id="input"
