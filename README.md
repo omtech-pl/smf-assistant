@@ -1,1 +1,1 @@
-# tutorial-translation-app
+# assistant-app
