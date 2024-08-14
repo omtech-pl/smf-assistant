@@ -1,1 +1,1 @@
-# assistant-app
+# smf-assistant
